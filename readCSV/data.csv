@@ -1,0 +1,3 @@
+interfaceType,serviceCode,actionId,value,serviceDescription,serviceFunctionName,targetURL,method,dataType,dataDetails
+Voice,RV010001,15001,Slope,xxx,CallResortInfoFunc,https://api.yanolja.io/ui/zGgtel54D,GET,JSON,KTSTD
+Touch,HV020003,15010,LivingRoom,yyy,UIHotelTurnLightFunc,https://istay.onescape.io/gas/1101/rcu,POST,JSON,OwnerSpecific
