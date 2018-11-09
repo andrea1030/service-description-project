@@ -1,0 +1,3 @@
+InterfaceType,ServiceCode,ActionId,Value,ServiceDescription,ServiceFunctionName,TargetURL,Method,DataType,DataDetails
+Remocon,SR030005,15500,BedRoomLight,침실조명끄기 리모콘제어,ReShopTurnOffLightFunc,https://api.yanolja.io/ui/zGgtel54D,GET,JSON,KT STD
+Voice,RV010001,15001,Slope,리조트 슬로프정보 발화,CallResortInfoFunc,https://api.yanolja.io/ui/zGgtel54D,GET,JSON,KTSTD
