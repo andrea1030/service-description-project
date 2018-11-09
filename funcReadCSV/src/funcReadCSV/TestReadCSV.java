@@ -19,10 +19,10 @@ public class TestReadCSV {
 	public static void main(String[] args) throws Exception
 	{
 //    	String a = "data.csv";
-		readWithCsvBeanReader(CSV_FILENAME);
+		FuncReadCSV(CSV_FILENAME);
 	}
  
-private static void readWithCsvBeanReader(String a) throws Exception {
+private static void FuncReadCSV(String a) throws Exception {
        String filename = a;
         ICsvBeanReader beanReader = null;
         try {
