@@ -28,7 +28,7 @@ public class ReadSVCregData {
             SVCregData svcregdata;
             while ((svcregdata = beanReader.read(SVCregData.class, headers, processors)) != null) {
 //                System.out.println(svcregdata);
-            	  System.out.println("   "+svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
+            	  System.out.println(" "+svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
             }
         }
     }
