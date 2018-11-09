@@ -12,6 +12,7 @@ import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
 
+
 public class ReadSVCregData {
     static final String CSV_FILENAME = "data.csv";
 	public static void main(String[] args) throws IOException
@@ -27,7 +28,7 @@ public class ReadSVCregData {
             SVCregData svcregdata;
             while ((svcregdata = beanReader.read(SVCregData.class, headers, processors)) != null) {
 //                System.out.println(svcregdata);
-            	  System.out.println(svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
+            	  System.out.println(" "+svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
             }
         }
     }
