@@ -1,4 +1,4 @@
-package readCSV;
+package funcReadCSV;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,26 +13,40 @@ import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
 
 
-public class ReadSVCregData {
+public class TestReadCSV {
     static final String CSV_FILENAME = "data.csv";
-	public static void main(String[] args) throws IOException
-	{
-        try(ICsvBeanReader beanReader = new CsvBeanReader(new FileReader(CSV_FILENAME), CsvPreference.STANDARD_PREFERENCE))
-        {
-            // the header elements are used to map the values to the bean
-            final String[] headers = beanReader.getHeader(true);
-            //final String[] headers = new String[]{"CustomerId","CustomerName","Country","PinCode","Email"};
-            final CellProcessor[] processors = getProcessors();
- 
-//            Customer customer;
-            SVCregData svcregdata;
-            while ((svcregdata = beanReader.read(SVCregData.class, headers, processors)) != null) {
-//                System.out.println(svcregdata);
-            	  System.out.println("   "+svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
-            }
-        }
-    }
 
+	public static void main(String[] args) throws Exception
+	{
+//    	String a = "data.csv";
+		readWithCsvBeanReader(CSV_FILENAME);
+	}
+ 
+private static void readWithCsvBeanReader(String a) throws Exception {
+       String filename = a;
+        ICsvBeanReader beanReader = null;
+        try {
+                beanReader = new CsvBeanReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE);
+                
+                // the header elements are used to map the values to the bean (names must match)
+                final String[] header = beanReader.getHeader(true);
+                final CellProcessor[] processors = getProcessors();
+                
+                SVCregData svcregdata;
+                while ((svcregdata = beanReader.read(SVCregData.class, header, processors)) != null) {
+//                    System.out.println(svcregdata);
+                	  System.out.println("   "+svcregdata.getInterfaceType()+" "+svcregdata.getServiceCode()+" "+svcregdata.getActionId()+" "+svcregdata.getValue()+" "+svcregdata.getServiceDescription()+" "+svcregdata.getServiceFunctionName()+" "+svcregdata.getTargetURL()+" "+svcregdata.getMethod()+" "+svcregdata.getDataType()+" "+svcregdata.getDataDetails());
+                }
+                
+        }
+        finally {
+                if( beanReader != null ) {
+                        beanReader.close();
+                }
+        }
+}
+	
+	
     /**
      * Sets up the processors used for the examples.
      */
@@ -51,7 +65,7 @@ public class ReadSVCregData {
                 new NotNull(), // ServiceCode: (Domain)(IType)(Service)(ID)
                 new NotNull(), // ActionID: 15001
                 new NotNull(), // Value: Slope
-                new Optional(), // Service Description: ����Ʈ �δ�ü� ��ȭ��� 
+                new Optional(), // Service Description:  
                 new NotNull(), // Service Function Name: CallResortInfoFunc
                 new NotNull(), // Target URL
                 new NotNull(), // Method
